@@ -56,6 +56,23 @@
 		Made with Python and ncurses. Just a basic demo, but kinda fun nonetheless.
 	</li>
 </ul>
+	<h2>Useful knowledge references</h2>
+	<ul>
+	<li><a href="http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length">
+		Splitting a media file in different parts with ffmpeg and ruby</a>
+		<br>
+		ruby -e '(0..4500).step(300) { |x| system "ffmpeg -ss #{x} -i in.m4a -c copy -t 300 out-#{x}.m4a"}'
+		</li>
+		
+		<li><a href="http://www.tutorialspoint.com/python/python_command_line_arguments.htm">Python - command line arguments</a>
+			<br>
+			import sys
+			<br>
+			all_args = sys.argv
+			<br>
+			args = sys.argv[1:]
+		</li>
+	</ul>
 	</section>
 	
 </body>
