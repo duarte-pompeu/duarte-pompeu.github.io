@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Useful Knowledge</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Pompas blog </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about-me.html">About me</a></li>
+                    <li class="active"><a href="/pages/useful-knowledge.html">Useful Knowledge</a></li>
+                    <li><a href="/pages/projects.html">Projects</a></li>
+                    <li><a href="/pages/useful-services.html">Useful Services</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">Useful Knowledge</h1>
+    
+    <h1>Shell Scripting / CLI commands</h1>
+<h2>Fish shell</h2>
+<h3>List arguments</h3>
+<div class="highlight"><pre><span class="p">$</span><span class="nv">argv</span><span class="x"></span>
+</pre></div>
+
+
+<h2>Splitting a media file in different parts with ffmpeg and ruby</h2>
+<div class="highlight"><pre>ruby -e &#39;(0..4500).step(300) { |x| system &quot;ffmpeg -ss #{x} -i in.m4a -c copy -t 300 out-#{x}.m4a&quot;}&#39;
+</pre></div>
+
+
+<p><a href="http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length">reference (Super User)</a></p>
+<h2>Learn more about a command</h2>
+<div class="highlight"><pre><span class="nv">$ </span>whereis <span class="o">[</span><span class="nb">command</span><span class="o">]</span>     <span class="c"># locate the binary, source, and manual page files for a [command]</span>
+<span class="nv">$ </span>whatis <span class="o">[</span><span class="nb">command</span><span class="o">]</span>      <span class="c"># display one-line manual page descriptions</span>
+<span class="nv">$ </span>which <span class="o">[</span><span class="nb">command</span><span class="o">]</span>       <span class="c"># shows the full path of (shell) commands.</span>
+<span class="nv">$ </span>apropos <span class="o">[</span><span class="nb">command</span><span class="o">]</span>     <span class="c"># search the manual page names and descriptions</span>
+
+<span class="c"># the classics:</span>
+
+<span class="nv">$ </span>man <span class="o">[</span><span class="nb">command</span><span class="o">]</span>         <span class="c"># an interface to the on-line reference manuals</span>
+<span class="nv">$ </span>info <span class="o">[</span><span class="nb">command</span><span class="o">]</span>        <span class="c"># read Info documents</span>
+</pre></div>
+
+
+<p><a href="https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/">reference</a></p>
+<h1>Programming languages</h1>
+<h2>Python</h2>
+<h3>command line arguments</h3>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">all_args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+
+
+<p><a href="http://www.tutorialspoint.com/python/python_command_line_arguments.htm">reference</a></p>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
