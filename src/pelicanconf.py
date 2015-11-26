@@ -2,9 +2,13 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Duarte Pompeu'
-SITENAME = 'Pompas blog'
-SITEURL = ''
+AUTHOR = u'Duarte Pompeu'
+#~ SITEURL = u'http://localhost:8000'
+SITENAME = u"Pompas blog"
+SITETITLE = AUTHOR
+SITESUBTITLE = u'CS Student'
+SITEDESCRIPTION = u'%s\'s Projects and References' % AUTHOR
+SITELOGO = u"http://duarte-pompeu.github.io/res/profile.png"
 
 PATH = 'content'
 
