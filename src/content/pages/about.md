@@ -8,3 +8,5 @@ I also keep a lot of references I find useful or interesting. It's useful to hav
 all I need is a browser and internet connection.
 
 **Notice**: I'm in the process of moving my old site to the pelican 'framework', so it may look incomplete for a while.
+
+:fa:`fa-github`

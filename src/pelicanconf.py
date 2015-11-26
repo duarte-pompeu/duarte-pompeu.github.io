@@ -23,10 +23,16 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+PLUGINS = [
+    # ...
+    'pelican_fontawesome',
+    # ...
+]
+
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),)
+#~ LINKS = (('Pelican', 'http://getpelican.com/'),
+         #~ ('Python.org', 'http://python.org/'),
+         #~ ('Jinja2', 'http://jinja.pocoo.org/'),)
 
 # Social widget
 SOCIAL = (("github", "https://www.github.com/duarte-pompeu"),)
