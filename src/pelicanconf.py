@@ -25,7 +25,8 @@ AUTHOR_FEED_RSS = None
 
 PLUGINS = [
     # ...
-    'pelican_fontawesome',
+    #~ 'pelican_fontawesome',
+    'pelicanfly',
     # ...
 ]
 
@@ -36,6 +37,14 @@ PLUGINS = [
 
 # Social widget
 SOCIAL = (("github", "https://www.github.com/duarte-pompeu"),)
+
+# work around to be able to make html
+STATIC_PATHS = [
+    'extra/main.css',
+]
+EXTRA_PATH_METADATA = {
+    'extra/main.css': {'path': 'theme/css/main.css'},
+}
 
 DEFAULT_PAGINATION = 10
 THEME="Flex"

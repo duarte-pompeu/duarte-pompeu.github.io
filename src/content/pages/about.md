@@ -9,4 +9,4 @@ all I need is a browser and internet connection.
 
 **Notice**: I'm in the process of moving my old site to the pelican 'framework', so it may look incomplete for a while.
 
-:fa:`fa-github`
+test: [:fa-coffee:](http://www.example.org)
