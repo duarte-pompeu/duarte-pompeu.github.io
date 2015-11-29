@@ -1,12 +1,13 @@
 Title: About me
 
-Hi, I'm Duarte. I'm a CS student and musician wannabe. 
+Hi, I'm Duarte. I'm a CS student and musician wannabe.
 
-You can find some of my software projects here.
+I'm interested in software engineering, free/open source software and online privacy.
 
-I also keep a lot of references I find useful or interesting. It's useful to have them available everywhere,
-all I need is a browser and internet connection.
+On my site, you can find:
 
-**Notice**: I'm in the process of moving my old site to the pelican 'framework', so it may look incomplete for a while.
+- some of my [software projects](./projects)
 
-test: [:fa-coffee:](http://www.example.org)
+- some references I like to keep handy
+    - [knowledge](./useful-knowledge)
+    - [services](./useful-services)

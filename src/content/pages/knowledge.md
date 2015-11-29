@@ -1,20 +1,19 @@
 Title: Useful Knowledge
 
-# Shell Scripting / CLI commands
+## Shell Scripting / CLI commands
 
-## Fish shell
 
-### List arguments
+### fish shell - List arguments
 
 	$argv
 
-## Splitting a media file in different parts with ffmpeg and ruby
+### Splitting a media file in different parts with ffmpeg and ruby
 
 	ruby -e '(0..4500).step(300) { |x| system "ffmpeg -ss #{x} -i in.m4a -c copy -t 300 out-#{x}.m4a"}'
 	
-[reference (Super User)](http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length)
+[reference](http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length)
 	
-## Learn more about a command
+### Learn more about a command
 	
 	$ whereis [command]		# locate the binary, source, and manual page files for a [command]
 	$ whatis [command]		# display one-line manual page descriptions
@@ -28,12 +27,7 @@ Title: Useful Knowledge
 
 [reference](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
 
-
-# Programming languages
-
-## Python
-
-### command line arguments
+### Python - command line arguments
 
 	import sys
 	all_args = sys.argv

@@ -38,6 +38,7 @@
       </nav>
       <ul class="social">
         <li><a class="sc-github" href="https://www.github.com/duarte-pompeu" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-Email" href="mailto:mail@duartepompeu.com" target="_blank"><i class="fa fa-Email"></i></a></li>
       </ul>
     </div>
   </aside>
@@ -48,20 +49,19 @@
     <h1 id="useful-knowledge">Useful Knowledge</h1>
   </header>
   <div>
-    <h1>Shell Scripting / CLI commands</h1>
-<h2>Fish shell</h2>
-<h3>List arguments</h3>
+    <h2>Shell Scripting / CLI commands</h2>
+<h3>fish shell - List arguments</h3>
 <div class="highlight"><pre><span class="p">$</span><span class="nv">argv</span><span class="x"></span>
 </pre></div>
 
 
-<h2>Splitting a media file in different parts with ffmpeg and ruby</h2>
+<h3>Splitting a media file in different parts with ffmpeg and ruby</h3>
 <div class="highlight"><pre>ruby -e &#39;(0..4500).step(300) { |x| system &quot;ffmpeg -ss #{x} -i in.m4a -c copy -t 300 out-#{x}.m4a&quot;}&#39;
 </pre></div>
 
 
-<p><a href="http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length">reference (Super User)</a></p>
-<h2>Learn more about a command</h2>
+<p><a href="http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length">reference</a></p>
+<h3>Learn more about a command</h3>
 <div class="highlight"><pre><span class="nv">$ </span>whereis <span class="o">[</span><span class="nb">command</span><span class="o">]</span>     <span class="c"># locate the binary, source, and manual page files for a [command]</span>
 <span class="nv">$ </span>whatis <span class="o">[</span><span class="nb">command</span><span class="o">]</span>      <span class="c"># display one-line manual page descriptions</span>
 <span class="nv">$ </span>which <span class="o">[</span><span class="nb">command</span><span class="o">]</span>       <span class="c"># shows the full path of (shell) commands.</span>
@@ -75,9 +75,7 @@
 
 
 <p><a href="https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/">reference</a></p>
-<h1>Programming languages</h1>
-<h2>Python</h2>
-<h3>command line arguments</h3>
+<h3>Python - command line arguments</h3>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">all_args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
 <span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
