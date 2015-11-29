@@ -37,7 +37,7 @@ PLUGINS = [
 
 # Social widget
 SOCIAL = (("github", "https://www.github.com/duarte-pompeu"),
-          ("Email", "mailto:mail@duartepompeu.com"),)
+          ("fa-mail", "mailto:mail@duartepompeu.com"),)
 # work around to be able to make html
 STATIC_PATHS = [
     'extra/main.css',
