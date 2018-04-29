@@ -1,0 +1,53 @@
+---
+title: Useful Knowledge
+---
+
+<h2> Shell Scripting / CLI commands</h2>
+
+
+
+<h3> fish shell - List arguments</h3>
+
+
+	$argv
+
+<h3> Splitting a media file in different parts with ffmpeg and ruby</h3>
+
+
+	ruby -e '(0..4500).step(300) { |x| system "ffmpeg -ss <h1>{x} -i in.m4a -c copy -t 300 out-#{x}.m4a"}'</h1>
+
+	
+[reference](http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length)
+	
+<h3> Learn more about a command</h3>
+
+	
+	$ whereis [command]		<h1> locate the binary, source, and manual page files for a [command]</h1>
+
+	$ whatis [command]		<h1> display one-line manual page descriptions</h1>
+
+	$ which [command]		<h1> shows the full path of (shell) commands.</h1>
+
+	$ apropos [command]		<h1> search the manual page names and descriptions</h1>
+
+	
+	<h1> the classics:</h1>
+
+	
+	$ man [command]			<h1> an interface to the on-line reference manuals</h1>
+
+	$ info [command]		<h1> read Info documents</h1>
+
+
+[reference](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
+
+<h3> Python - command line arguments</h3>
+
+
+	import sys
+	all_args = sys.argv
+	args = sys.argv[1:]
+
+[reference](http://www.tutorialspoint.com/python/python_command_line_arguments.htm)
+
+
