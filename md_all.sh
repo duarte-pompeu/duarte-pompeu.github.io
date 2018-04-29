@@ -10,6 +10,8 @@ for f in $FOLDERS; do
 	mkdir ../blog/$f
 done
 
+cp _media/* ../blog/_media/
+
 IFS=$'\n'
 for markdown in $(find . | grep -E "\.md$"); do
 	# some path manipulation to turn "./folder/example.md" into "folder/example.md"
