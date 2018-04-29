@@ -5,21 +5,22 @@
 <li style="display:inline"><a href="../About/">About</a></li>
 <li style="display:inline"><a href="../Projects/">Projects</a></li>
 </ul
->---
-title: 404 - Page Not Found
----
+><h1> Bash template with examples</h1>
 
-Looks like the server couldn't find resource you wanted. Bad URL? Dead page? Who knows.
 
-![Conan has no idea either](/images/confused_conan.jpg)
+<p class="md-code" style="font-family:monospace; font-size: 12px;"> <pre><code>
+set -x #echo on
+echo $0 # print args, use $1, $2 for 1st, 2nd, etc.
 
-Meanwhile, you can check some of my other stuff:
 
-- [about](../about)
+IFS=$'\n'
+for word in $(echo -e "a\nb\nc"); do
+	echo $word
+done
 
-- [software projects](../projects)
+</code></pre></p>
 
-- [knowledge references](../knowledge)
+~
 
-- [useful services](../services)
+
 

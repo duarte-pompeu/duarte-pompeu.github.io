@@ -7,14 +7,19 @@ import re
 
 ARG_INPUT = "input"
 ARG_OUT_FOLDER = "output_folder"
+ARG_FOLDERS = "--menu"
 
-MD_CODE = "md-code"
+
+CSS_CODE = "md-code"
+CSS_MENU = "site-menu"
+
 
 def main():
 	# 0 parse args
 	parser = argparse.ArgumentParser()
 	parser.add_argument(ARG_INPUT)
 	parser.add_argument(ARG_OUT_FOLDER)
+	parser.add_argument(ARG_FOLDERS, help="menu=\"f1,f2,f3\"")
 	args = parser.parse_args()
 	
 	# 1 create folders if needed
@@ -30,7 +35,13 @@ def main():
 	# 3 markdown to html
 	out = md_to_html_state_machine(text)
 	
-	# 4 print to file
+	# 4 preprend main menu
+	menu_array = args.menu.split(",")
+	menu_html = main_menu(menu_array)
+	
+	out = menu_html + out
+	
+	# -1 print to file
 	out_folder = os.path.relpath(args.output_folder, "./")
 	tmp, file_name = os.path.splitdrive(args.input)
 	out_path = out_folder + "/" + file_name.replace(".md", ".html")
@@ -38,7 +49,6 @@ def main():
 	
 	print(out_folder)
 	print(out_path)
-	# cp -r source/* blog/
 	
 	f = open(out_path, "w+")
 	print(out, file=f)
@@ -99,7 +109,7 @@ def heading_1(text):
 			text = text[1:]
 
 def code(text):
-	out = "<p class=\"{}\" style=\"font-family:monospace; font-size: 12px;\"> <pre><code>".format(MD_CODE)
+	out = "<p class=\"{}\" style=\"font-family:monospace; font-size: 12px;\"> <pre><code>".format(CSS_CODE)
 	char = None
 	
 	while (text):
@@ -125,8 +135,16 @@ def code(text):
 			text = text[1:]
 	
 	return out, None
+
+def main_menu(items_arr):
+	out ="<ul class={}>\n".format(CSS_MENU)
+	for item in items_arr:
+		css = "display:inline"
+		out+="<li style=\"{}\"><a href=\"../{}/\">{}</a></li>\n".format(css, item,item)
 	
+	out+="</ul\n>"
+	
+	return out
 			
 if __name__ == "__main__":
 	main()
-
