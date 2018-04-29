@@ -1,4 +1,2 @@
 # duarte-pompeu.github.io
-My personal gh-page, using Hexo.
-
-https://hexo.io/
+My personal gh-page, using pompas_md.
