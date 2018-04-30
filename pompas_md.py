@@ -73,6 +73,9 @@ def md_to_html_state_machine(text):
 				out += char
 				text = text[1:]
 				
+		elif char == "[":
+			current_out, text = a_href(text[1:])
+			out += current_out
 		
 		elif char == "#":
 			current_out, text = heading_1(text[1:])
@@ -135,6 +138,52 @@ def code(text):
 	
 	return out, None
 
+def a_href(text):
+	line = text.split("\n")[0]
+	
+	name=""
+	url=""
+	state = 0
+	char = None
+	
+	while(text):
+		char = text[0]
+		
+		if char == "]" and state == 0:
+			state = 1
+			text = text[1:]
+		
+		elif char == "(" and state == 1:
+			state = 2
+			text = text[1:]
+		
+		elif char == ")" and state == 2:
+			state == 3
+			
+			html = "<a href=\"{}\">{}</a>".format(url, name)
+			text = text[1:]
+			return html, text
+		
+		elif state == 0:
+			if char == "\\":
+				name += text[1:]
+				text = text[2:]
+			
+			else:
+				name+=char
+				text = text[1:]
+		
+		elif state == 2:
+			if char == "\\":
+					url += text[1:]
+					text = text[2:]
+			else:
+				url += char
+				text = text[1:]
+		
+	
+	raise Exception("no closure for url")
+	
 def main_menu(items_arr):
 	out ="<ul class={}>\n".format(CSS_MENU)
 	for item in items_arr:
