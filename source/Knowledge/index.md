@@ -7,7 +7,9 @@
 
 ### Splitting a media file in different parts with ffmpeg and ruby
 
+~~~
 	ruby -e '(0..4500).step(300) { |x| system "ffmpeg -ss #{x} -i in.m4a -c copy -t 300 out-#{x}.m4a"}'
+~~~
 	
 [reference](http://superuser.com/questions/525210/splitting-an-audio-file-into-chunks-of-a-specified-length)
 	
