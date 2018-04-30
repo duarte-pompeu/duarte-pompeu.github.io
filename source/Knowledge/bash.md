@@ -10,6 +10,15 @@ for word in $(echo -e "a\nb\nc"); do
 	echo $word
 done
 
+
+for value in {10..0..2}; do
+	echo $value
+done
+
+for value in $(seq 0 2 10); do
+	echo $value
+done
+
 ~~~
 
 
