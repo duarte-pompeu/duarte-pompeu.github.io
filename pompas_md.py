@@ -58,24 +58,23 @@ def md_to_html_state_machine(text):
 	char = None
 	
 	while(text):
-		# ~ print("stm")
 		char = text[0]
 		
 		if char == "\\":
 			out += text[1]
-			text = text[1:]
+			text = text[2:]
 		
 		elif char == "~":
-			if text[0:2] == "~~":
-				current_out, text = code(text[2:])
+			if text[0:3] == "~~~":
+				current_out, text = code(text[3:])
 				out+= current_out
 			
 			else:
-				# ~ out += char
+				out += char
 				text = text[1:]
 				
 		
-		if char == "#":
+		elif char == "#":
 			current_out, text = heading_1(text[1:])
 			out += current_out
 		
@@ -121,13 +120,13 @@ def code(text):
 			text = text[1:]
 			
 		elif char == "~":
-			if text[0:2] == "~~":
-				text = text[2:]
+			if text[0:3] == "~~~":
+				text = text[3:]
 				out += "</code></pre></p>\n\n"
 				return out, text
 			
 			else:
-				# ~ out += char
+				out += char
 				text = text[1:]
 			
 		else:

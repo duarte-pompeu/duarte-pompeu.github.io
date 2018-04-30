@@ -10,6 +10,6 @@ while (True):
 	print("Hello world!")
 ~~~
 
-Not code, just a \~.
+Not code, just a \~ and a ~.
 
 
