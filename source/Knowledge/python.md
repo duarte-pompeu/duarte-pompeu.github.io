@@ -1,14 +1,16 @@
 # Cheatsheet for Python 3
+~~~
+#!/usr/bin/python3
+
 import time
 import random
 import sys
 import fileinput
 import argparse
-~~~
-
-#!/usr/bin/python3
+import datetime as dt
 
 def main():
+
     # read arguments (simple)
     print(str(sys.argv))
 
@@ -33,7 +35,6 @@ def main():
 
 
     # random
-    import datetime as dt
 
     seed = hash(dt.datetime.now())
     print("SEED: {}".format(seed))
