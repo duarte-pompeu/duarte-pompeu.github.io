@@ -1,6 +1,4 @@
----
-title: 404 - Page Not Found
----
+# 404
 
 Looks like the server couldn't find resource you wanted. Bad URL? Dead page? Who knows.
 

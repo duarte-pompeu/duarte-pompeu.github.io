@@ -1,6 +1,4 @@
----
-Title: Some projects and code demos
----
+# Some fun programs
 
 
 # [Find the meaning of your name](http://duarte-pompeu.github.io/name_meaning)

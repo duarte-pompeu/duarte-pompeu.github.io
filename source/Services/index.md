@@ -1,6 +1,4 @@
----
-title: Useful Services
----
+# Useful services
 
 ## Online Hosting
 
@@ -22,28 +20,14 @@ Check if you have an account that has been compromised in a data breach
 
 ### Browser's TLS/SSL
 
-Check the state of your browser's TLS/SSL.
+Check the state of your browser's TLS/SSL with [How's my SSL](https://www.howsmyssl.com/) or [SSL labs](https://www.ssllabs.com/ssltest/viewMyClient.html)
 
-- [How's My SSL](https://www.howsmyssl.com/)
+### Inspect HTTP requests: 
 
-- [SSL/TLS Capabilities of Your Browser](https://www.ssllabs.com/ssltest/viewMyClient.html)
-
-
-### Inspect HTTP requests
-
-- [Request Bin](http://requestb.in/)
-
-- [Henry's HTTP Post Dumping Server](https://www.posttestserver.com/)
-
-- [httpbin(1): HTTP Request & Response Service](https://httpbin.org/)
-
-These allow you to inspect your HTTP POST requests, among other stuff.
-
-
+These allow you to inspect your HTTP requests, such as POST: [Request Bin](http://requestb.in/), [Henry's HTTP Post Dumping Server](https://www.posttestserver.com/), [httpbin(1)](https://httpbin.org/)
 
 ## Others
 
 ### [You Pronounce It](http://youpronounce.it/)
 
-Use YouTube to improve your English pronunciation. Real people, real situations, easy and fun to use.
-	
+Find the English pronunciation of words with youtube.
