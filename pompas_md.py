@@ -8,10 +8,12 @@ import re
 ARG_INPUT = "input"
 ARG_OUT_FOLDER = "output_folder"
 ARG_FOLDERS = "--menu"
+ARG_SUBMENU = "--submenu"
 
 
 CSS_CODE = "md-code"
 CSS_MENU = "site-menu"
+CSS_SUBMENU = "site-menu"
 
 
 def main():
@@ -20,6 +22,7 @@ def main():
 	parser.add_argument(ARG_INPUT)
 	parser.add_argument(ARG_OUT_FOLDER)
 	parser.add_argument(ARG_FOLDERS, help="menu=\"f1,f2,f3\"")
+	parser.add_argument(ARG_SUBMENU, help="submenu=\"f1,f2,f3\"")
 	args = parser.parse_args()
 	
 	# 1 create folders if needed
@@ -35,11 +38,15 @@ def main():
 	# 3 markdown to html
 	out = md_to_html_state_machine(text)
 	
-	# 4 preprend main menu
+	# 4.1 preprend main menu
 	menu_array = args.menu.split(",")
 	menu_html = main_menu(menu_array)
 	
-	out = menu_html + out
+	#4.2 preprend sub menu
+	submenu_array = args.submenu.split(",")
+	submenu_html = sub_menu(submenu_array)
+	
+	out = menu_html + submenu_html + out
 	
 	# -1 print to file
 	out_folder = os.path.relpath(args.output_folder, "./")
@@ -189,6 +196,16 @@ def main_menu(items_arr):
 	for item in items_arr:
 		css = "display:inline"
 		out+="<li style=\"{}\"><a href=\"../{}/\">{}</a></li>\n".format(css, item,item)
+	
+	out+="</ul\n>"
+	
+	return out
+
+def sub_menu(items_arr):
+	out ="<ul class={}>\n".format(CSS_SUBMENU)
+	for item in items_arr:
+		css = "display:inline"
+		out+="<li style=\"{}\"><a href=\"./{}.html\">{}</a></li>\n".format(css, item,item)
 	
 	out+="</ul\n>"
 	
