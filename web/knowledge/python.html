@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<html>
+
+<header>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../responsive.css">
+</header>
+
+<body>
+
+    <div id="header1">
+        <a href="../">Home</a>
+        <a href="../projects/">Projects</a>
+        <a href="../knowledge/">Knowledge</a>
+        <a href="../services/">Resources</a>
+        
+    </div>
+
+    <div id="header2">
+        <a href="index.html">Index</a>
+        <a href="python.html">Python</a>
+        <a href="bash.html">Bash</a>
+    </div>
+<h1 id="cheatsheet-for-python-3">Cheatsheet for Python 3</h1>
+<pre><code>#!/usr/bin/python3
+
+import time
+import random
+import sys
+import fileinput
+import argparse
+import datetime as dt
+
+def main():
+
+    # read arguments (simple)
+    print(str(sys.argv))
+
+
+    # read argument (argparse)
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;--echo&quot;, default=None, help=&quot;example of an argparse argument&quot;)
+    args = parser.parse_args()
+
+    print(args.echo)
+
+
+    # read from stdin
+    for line in fileinput.input():
+        print(line)
+
+    # read from file
+    file_name = None
+
+    for line in fileinput.input(file_name):
+        print(line)
+
+
+    # random
+
+    seed = hash(dt.datetime.now())
+    print(&quot;SEED: {}&quot;.format(seed))
+    random.seed(seed)
+    r = random.randint(0,5)
+
+
+    # sleep
+    n_secs = 5
+    print(&quot;Sleeping for {} seconds.&quot;.format(str(r)))
+    time.sleep(n_secs)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+</body>
+</html>
+</body>
+</html>
