@@ -6,6 +6,43 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
 </head>
 <body>
 <html>
@@ -31,56 +68,101 @@
         <a href="bash.html">Bash</a>
     </div>
 <h1 id="cheatsheet-for-python-3">Cheatsheet for Python 3</h1>
-<pre><code>#!/usr/bin/python3
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python3</span>
 
-import time
-import random
-import sys
-import fileinput
-import argparse
-import datetime as dt
+<span class="kw">def</span> main():
 
-def main():
+    <span class="co">######################################################################</span>
+    <span class="co"># argparse - https://docs.python.org/3/library/argparse.html</span>
+    <span class="co">######################################################################</span>
+    <span class="im">import</span> argparse
+    parser <span class="op">=</span> argparse.ArgumentParser()
+    parser.add_argument(<span class="st">&quot;--train&quot;</span>, action<span class="op">=</span><span class="st">&quot;store_true&quot;</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&quot;optional argument, stores a true/false value&quot;</span>)
+    parser.add_argument(<span class="st">&quot;-steps&quot;</span>,<span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&quot;optional argument, followed by a int value&quot;</span>)
+    parser.add_argument(<span class="st">&quot;-episodes&quot;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&quot;optional argument, followed by a int value&quot;</span>)
 
-    # read arguments (simple)
-    print(str(sys.argv))
+    args <span class="op">=</span> parser.parse_args()
 
+    args_example <span class="op">=</span> [<span class="st">&quot;--train&quot;</span>, <span class="st">&quot;-episodes=5&quot;</span>, <span class="st">&quot;-steps&quot;</span>, <span class="st">&quot;6&quot;</span>]
+    args <span class="op">=</span> parser.parse_args(args_example)
 
-    # read argument (argparse)
-    parser = argparse.ArgumentParser()
-    parser.add_argument(&quot;--echo&quot;, default=None, help=&quot;example of an argparse argument&quot;)
-    args = parser.parse_args()
-
-    print(args.echo)
-
-
-    # read from stdin
-    for line in fileinput.input():
-        print(line)
-
-    # read from file
-    file_name = None
-
-    for line in fileinput.input(file_name):
-        print(line)
+    <span class="cf">if</span> args.train:
+        <span class="bu">print</span>(args.steps, args.episodes) <span class="co"># prints (6, 5)</span>
 
 
-    # random
 
-    seed = hash(dt.datetime.now())
-    print(&quot;SEED: {}&quot;.format(seed))
+    <span class="bu">print</span>(<span class="st">&quot;(double EOF to skip)&quot;</span>)
+    <span class="co">######################################################################</span>
+    <span class="co"># read from stdin</span>
+    <span class="co">######################################################################</span>
+    <span class="im">import</span> fileinput
+    <span class="cf">for</span> line <span class="kw">in</span> fileinput.<span class="bu">input</span>():
+        <span class="bu">print</span>(line)
+
+
+
+    <span class="co">######################################################################</span>
+    <span class="co"># read from file</span>
+    <span class="co">######################################################################</span>
+    file_name <span class="op">=</span> <span class="va">None</span>
+    <span class="cf">for</span> line <span class="kw">in</span> fileinput.<span class="bu">input</span>(file_name):
+        <span class="bu">print</span>(line)
+
+
+
+    <span class="co">######################################################################</span>
+    <span class="co"># random</span>
+    <span class="co">######################################################################</span>
+    <span class="im">import</span> datetime, random, time
+    <span class="im">import</span> numpy <span class="im">as</span> np
+
+    seed <span class="op">=</span> <span class="bu">hash</span>(datetime.datetime.now())
     random.seed(seed)
-    r = random.randint(0,5)
+    <span class="co"># r = random.randint(1, 3)</span>
+    r <span class="op">=</span> np.random.randint(<span class="dv">1</span>, <span class="dv">3</span>)
+    <span class="bu">print</span>(<span class="st">&quot;sleeping for </span><span class="sc">{}</span><span class="st"> seconds with seed=</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(r,seed))
+    time.sleep(r)
 
 
-    # sleep
-    n_secs = 5
-    print(&quot;Sleeping for {} seconds.&quot;.format(str(r)))
-    time.sleep(n_secs)
 
-if __name__ == &quot;__main__&quot;:
-    main()
-</code></pre>
+    <span class="co">######################################################################</span>
+    <span class="co"># progressbar - https://pypi.org/project/progressbar2/</span>
+    <span class="co">######################################################################</span>
+    <span class="im">import</span> progressbar
+
+    max_val <span class="op">=</span> <span class="dv">10</span>
+    widgets<span class="op">=</span>[
+        progressbar.DynamicMessage(<span class="st">&quot;seed_val&quot;</span>),
+        <span class="st">&#39; [&#39;</span>, progressbar.Timer(), <span class="st">&#39;] &#39;</span>,
+        progressbar.Bar(),
+        <span class="st">&#39; (&#39;</span>, progressbar.ETA(), <span class="st">&#39;) &#39;</span>,
+    ]
+    bar <span class="op">=</span> progressbar.ProgressBar(max_value<span class="op">=</span>max_val, widgets<span class="op">=</span>widgets)
+    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(max_val):
+            bar.update(i, seed_val<span class="op">=</span>seed)
+            time.sleep(<span class="dv">1</span>)
+
+
+
+    <span class="co">######################################################################</span>
+    <span class="co"># statistics - https://docs.scipy.org/doc/scipy/reference/stats.html</span>
+    <span class="co">######################################################################</span>
+    <span class="im">import</span> numpy <span class="im">as</span> np
+    <span class="im">import</span> scipy.stats <span class="im">as</span> stats
+    np.random.seed(<span class="dv">666</span>)
+    values <span class="op">=</span> np.random.random((<span class="dv">100</span>,))<span class="op">*</span><span class="dv">1000</span> <span class="op">+</span> <span class="dv">1000</span> <span class="co"># 1000-2000</span>
+
+    mean <span class="op">=</span> np.mean(values)
+    percentiles <span class="op">=</span> [<span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>]
+    scores <span class="op">=</span> stats.scoreatpercentile(values, percentiles)
+    <span class="bu">print</span>(mean)
+    <span class="bu">print</span>(scores)
+
+
+
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre></div>
 </body>
 </html>
 </body>
