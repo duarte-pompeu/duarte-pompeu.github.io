@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# workaround for pandoc on windows...
+pandoc="/c/Users/jubileu/anaconda3/pkgs/pandoc-2.9.2.1-0/Scripts/pandoc.exe"
+
 cd src/
 folders=$(find . -type "d" | sed "s/.\///")
 md_files=$(find . | sed "s/.\///" | grep -E ".md\$")
@@ -33,7 +36,7 @@ for f in $folders; do
         before=src/$f/_b.html
         after=src/$f/_a.html
 
-        pandoc $in -B $before -A $after > $out
+        $pandoc $in -B $before -A $after > $out
     done
 done
 
