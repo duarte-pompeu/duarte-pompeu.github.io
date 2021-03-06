@@ -6,19 +6,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>index</title>
   <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-<html>
+<!-- <html>
 
 <head>
     <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
@@ -28,7 +159,7 @@
 
 
 
-<body>
+<body> -->
 
     <div id="header1">
         <a href="../">Home</a>
@@ -38,25 +169,46 @@
         <a href="../services/">Resources</a>
         
     </div>
-<h1 id="useful-services">Useful services</h1>
-<h2 id="online-hosting">Online Hosting</h2>
-<h3 id="koding"><a href="https://koding.com/">Koding</a></h3>
-<p>Deploy and test an Ubuntu VM for free (dies after 20 minutes of inactivity). Has a browser file explorer, text editor and terminal. Allows ssh connections.</p>
-<h3 id="webhost"><a href="http://www.000webhost.com/">000webhost</a></h3>
-<p>Free server. Low space and few tools (php, mysql, cron and ftp), but it’s free!</p>
-<h3 id="neocities"><a href="https://neocities.org/">neocities</a></h3>
-<p>Free website hosting. Basic, but neat interface.</p>
-<h2 id="security">Security</h2>
-<h3 id="have-i-been-pwned"><a href="https://haveibeenpwned.com/">Have I been Pwned</a></h3>
-<p>Check if you have an account that has been compromised in a data breach</p>
-<h3 id="browsers-tlsssl">Browser’s TLS/SSL</h3>
-<p>Check the state of your browser’s TLS/SSL with <a href="https://www.howsmyssl.com/">How’s my SSL</a> or <a href="https://www.ssllabs.com/ssltest/viewMyClient.html">SSL labs</a></p>
+<h1 id="useful-resources">Useful resources</h1>
+<h2 id="backend-development">Backend development</h2>
+<h3 id="apis">APIs</h3>
+<ul>
+<li><a href="https://editor.swagger.io/">Swagger editor</a>: quickly check openapi files</li>
+<li><a href="https://www.postman.com/">Postman</a>: test APIs, with a UI much cleaner than Swagger</li>
+</ul>
 <h3 id="inspect-http-requests">Inspect HTTP requests:</h3>
-<p>These allow you to inspect your HTTP requests, such as POST: <a href="http://requestb.in/">Request Bin</a>, <a href="https://www.posttestserver.com/">Henry’s HTTP Post Dumping Server</a>, <a href="https://httpbin.org/">httpbin(1)</a></p>
-<h2 id="others">Others</h2>
-<h3 id="you-pronounce-it"><a href="http://youpronounce.it/">You Pronounce It</a></h3>
-<p>Find the English pronunciation of words with youtube.</p>
-</body>
-</html>
+<p>These allow you to inspect your HTTP requests, such as POST:</p>
+<ul>
+<li><a href="https://ngrok.com/">ngrok</a>: secure introspectable tunnels to localhost</li>
+<li><a href="https://webhook.site">Webhook.site</a>: saves requests and lets you inspect them</li>
+<li><a href="https://httpbin.org/">httpbin(1)</a>: test requests. Simple, but provides a docker image to use locally. Try it with <code>docker run -p 80:80 kennethreitz/httpbin</code></li>
+</ul>
+<h3 id="others">Others</h3>
+<ul>
+<li><a href="https://jsonformatter.curiousconcept.com/">JSON formatter</a>: validate json online, although I prefer JSON Reindent for sublime text</li>
+</ul>
+<h3 id="music">Music</h3>
+<ul>
+<li><a href="https://www.whosampled.com/">Who Sampled</a>: discover the samples used in a song, or songs which sampled it</li>
+</ul>
+<h2 id="typing">Typing</h2>
+<p>Quick typing is a hobby of mine, and my personal record was 115 WPM (words per minute).</p>
+<p>This was back when I was using 3 fingers on each hand. Now I’m trying the <em>proper</em> style using all fingers, and I’m able to reach around 90 WPM. Decades olds habbits are pretty hard to break!</p>
+<ul>
+<li><a href="https://10fastfingers.com/typing-test/english">10 fast fingers</a></li>
+<li><a href="https://www.keybr.com/">keybr</a></li>
+<li><a href="https://thepracticetest.com/">The Practice Test</a></li>
+</ul>
+<p><img src="https://img.10fastfingers.com/img/badge/typing-test_1_CI.png" /></p>
+<h2 id="learning">Learning</h2>
+<p><a href="https://apps.ankiweb.net/">Anki</a> is a website which lets you generate and review flash cards.</p>
+<p><a href="https://youglish.com/">You Pronounce It</a> let’s you find the proper pronunciation of words by searching youtube videos.</p>
+<h2 id="online-hosting">Online Hosting</h2>
+<p><a href="http://www.000webhost.com/">000webhost</a> is a free server, with small space available and only a few tools (php, mysql, cron and ftp)… but it’s free!</p>
+<p><a href="https://neocities.org/">neocities</a> is a free website hosting service with a basic, but neat interface.</p>
+<h2 id="others-1">Others</h2>
+<p>Check if you have an account that has been compromised in a data breach with <a href="https://haveibeenpwned.com/">Have I been Pwned</a></p>
+<!-- </body>
+</html> -->
 </body>
 </html>
