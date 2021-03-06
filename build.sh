@@ -37,6 +37,7 @@ for f in $folders; do
         after=src/$f/_a.html
 
         pandoc $in -B $before -A $after --standalone > $out
+
     done
 done
 
