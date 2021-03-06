@@ -30,10 +30,13 @@ for f in $folders; do
         sed_expr2="s/\.md\$//" # ommit .md from html_filenames
         out=$(echo web/$f/$md | sed $sed_expr1 | sed $sed_expr2).html
 
+        # echo $in
+        # echo $out
+
         before=src/$f/_b.html
         after=src/$f/_a.html
 
-        pandoc $in -B $before -A $after > $out
+        pandoc $in -B $before -A $after --standalone > $out
     done
 done
 
