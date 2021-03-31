@@ -1,11 +1,11 @@
 # Useful resources
 
-## Backend development
+## Development
 
 ### APIs
 
 - [Swagger editor](https://editor.swagger.io/): quickly check openapi files
-- [Postman](https://www.postman.com/): test APIs, with a UI much cleaner than Swagger
+- [Postman](https://www.postman.com/): test APIs with a better UX than Swagger (imo)
 
 ### Inspect HTTP requests: 
 
@@ -18,6 +18,7 @@ These allow you to inspect your HTTP requests, such as POST:
 ### Others
 
 - [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online, although I prefer JSON Reindent for sublime text
+- [Regex 101](https://regex101.com/): learn and validate regex
 
 ### Music
 
