@@ -52,4 +52,7 @@ Decades olds habbits are pretty hard to break!
 
 ## Others
 
-Check if you have an account that has been compromised in a data breach with [Have I been Pwned](https://haveibeenpwned.com/)
+- [Have I been Pwned](https://haveibeenpwned.com/): check if you have an account that has been compromised
+
+- [Bitwarden Send](https://vault.bitwarden.com/#/sends): share passwords securely (password protection + expiry date + deletion after n accesses)
+
