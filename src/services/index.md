@@ -1,11 +1,13 @@
 # Useful resources
 
-## Backend development
+Below are some resources which I find very useful and frequently access.
+
+## Development
 
 ### APIs
 
 - [Swagger editor](https://editor.swagger.io/): quickly check openapi files
-- [Postman](https://www.postman.com/): test APIs, with a UI much cleaner than Swagger
+- [Postman](https://www.postman.com/): test APIs with a better UX than Swagger (imo)
 
 ### Inspect HTTP requests: 
 
@@ -17,9 +19,14 @@ These allow you to inspect your HTTP requests, such as POST:
 
 ### Others
 
-- [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online, although I prefer JSON Reindent for sublime text
+- [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online
+- [Regex 101](https://regex101.com/): learn and validate regex
 
-### Music
+## Linux
+
+- [Crontab Guru](https://crontab.guru/): validate cron online
+
+## Music
 
 - [Who Sampled](https://www.whosampled.com/): discover the samples used in a song, or songs which sampled it
 
@@ -51,4 +58,7 @@ Decades olds habbits are pretty hard to break!
 
 ## Others
 
-Check if you have an account that has been compromised in a data breach with [Have I been Pwned](https://haveibeenpwned.com/)
+- [Have I been Pwned](https://haveibeenpwned.com/): check if you have an account that has been compromised
+
+- [Bitwarden Send](https://vault.bitwarden.com/#/sends): share passwords securely (password protection + expiry date + deletion after n accesses)
+
