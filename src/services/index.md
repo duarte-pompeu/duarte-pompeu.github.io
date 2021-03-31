@@ -1,5 +1,7 @@
 # Useful resources
 
+Below are some resources which I find very useful and frequently access.
+
 ## Development
 
 ### APIs
@@ -17,10 +19,14 @@ These allow you to inspect your HTTP requests, such as POST:
 
 ### Others
 
-- [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online, although I prefer JSON Reindent for sublime text
+- [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online
 - [Regex 101](https://regex101.com/): learn and validate regex
 
-### Music
+## Linux
+
+- [Crontab Guru](https://crontab.guru/): validate cron online
+
+## Music
 
 - [Who Sampled](https://www.whosampled.com/): discover the samples used in a song, or songs which sampled it
 
