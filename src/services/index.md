@@ -62,3 +62,5 @@ Decades olds habbits are pretty hard to break!
 
 - [Bitwarden Send](https://vault.bitwarden.com/#/sends): share passwords securely (password protection + expiry date + deletion after n accesses)
 
+- [Untools](https://untools.co/): tools for problem-solving with diagrams
+
