@@ -56,20 +56,20 @@ Decades olds habbits are pretty hard to break!
 
 [neocities](https://neocities.org/) is a free website hosting service with a basic, but neat interface.
 
+[netlifty](netlify.com) is what I currently use to build my websites.
+
 ## Others
 
 - [Have I been Pwned](https://haveibeenpwned.com/): check if you have an account that has been compromised
-
 - [Bitwarden Send](https://vault.bitwarden.com/#/sends): share passwords securely (password protection + expiry date + deletion after n accesses)
-
 - [Untools](https://untools.co/): tools for problem-solving with diagrams
-
 - [Start Bodyweight](http://www.startbodyweight.com/): exercises for bodyweight training
-
 - [whosampled.com/](https://www.whosampled.com/)
-
 - https://gordonbrander.com/
-
 - https://everynoise.com/engenremap.html
-
-
+- https://withoutbullshit.com
+- https://steam.tools/itemvalue/
+- https://www.cheapshark.com/
+- https://www.guerrillamail.com/
+- https://tastedive.com
+- 

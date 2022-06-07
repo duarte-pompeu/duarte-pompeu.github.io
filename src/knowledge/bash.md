@@ -22,3 +22,6 @@ done
 ~~~
 
 
+## Further reading
+
+- https://wstyler.ucsd.edu/unix/
