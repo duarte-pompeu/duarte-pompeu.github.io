@@ -1,6 +1,7 @@
 # Books
 
+## A course in Machine Learning
 
-http://ciml.info/: classic AI
+[A course in Machine Learning](http://ciml.info/), by Hal Daumé III
 
 
