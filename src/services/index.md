@@ -66,3 +66,10 @@ Decades olds habbits are pretty hard to break!
 
 - [Start Bodyweight](http://www.startbodyweight.com/): exercises for bodyweight training
 
+- [whosampled.com/](https://www.whosampled.com/)
+
+- https://gordonbrander.com/
+
+- https://everynoise.com/engenremap.html
+
+
