@@ -6,8 +6,8 @@ Below are some resources which I find very useful and frequently access.
 
 ### APIs
 
-- [Swagger editor](https://editor.swagger.io/): quickly check openapi files
-- [Postman](https://www.postman.com/): test APIs with a better UX than Swagger (imo)
+- [Swagger editor](https://editor.swagger.io/): inspect and edit  openapi files
+- [Postman](https://www.postman.com/): test APIs with a scriptable interface and UX slightly better than Swagger
 
 ### Inspect HTTP requests: 
 
@@ -19,16 +19,17 @@ These allow you to inspect your HTTP requests, such as POST:
 
 ### Others
 
-- [JSON formatter](https://jsonformatter.curiousconcept.com/): validate json online
 - [Regex 101](https://regex101.com/): learn and validate regex
-
-## Linux
-
 - [Crontab Guru](https://crontab.guru/): validate cron online
 
-## Music
+
+## Arts
 
 - [Who Sampled](https://www.whosampled.com/): discover the samples used in a song, or songs which sampled it
+- [Every noise at once](https://everynoise.com/engenremap.html): map of music genres with samples
+- [tastedive](https://tastedive.com): find similar things to your favorite things, ie books/games/movies/music/tv shows
+- [Steam tools - item value](https://steam.tools/itemvalue/): load your inventory and sort the items by market value
+- [Steam shark](https://www.cheapshark.com/): search discounts for games
 
 ## Typing
 
@@ -42,8 +43,6 @@ Decades olds habbits are pretty hard to break!
 - [keybr](https://www.keybr.com/)
 - [The Practice Test](https://thepracticetest.com/)
 
-![](https://img.10fastfingers.com/img/badge/typing-test_1_CI.png)
-
 ## Learning
 
 [Anki](https://apps.ankiweb.net/) is a website which lets you generate and review flash cards.
@@ -52,11 +51,11 @@ Decades olds habbits are pretty hard to break!
 
 ## Online Hosting
 
+[netlifty](netlify.com) is what I currently use to build my websites.
+
 [000webhost](http://www.000webhost.com/) is a free server, with small space available and only a few tools (php, mysql, cron and ftp)... but it's free!
 
 [neocities](https://neocities.org/) is a free website hosting service with a basic, but neat interface.
-
-[netlifty](netlify.com) is what I currently use to build my websites.
 
 ## Others
 
@@ -64,12 +63,8 @@ Decades olds habbits are pretty hard to break!
 - [Bitwarden Send](https://vault.bitwarden.com/#/sends): share passwords securely (password protection + expiry date + deletion after n accesses)
 - [Untools](https://untools.co/): tools for problem-solving with diagrams
 - [Start Bodyweight](http://www.startbodyweight.com/): exercises for bodyweight training
-- [whosampled.com/](https://www.whosampled.com/)
-- https://gordonbrander.com/
-- https://everynoise.com/engenremap.html
-- https://withoutbullshit.com
-- https://steam.tools/itemvalue/
-- https://www.cheapshark.com/
-- https://www.guerrillamail.com/
-- https://tastedive.com
-- 
+- [Gordon Brander's website](https://gordonbrander.com/): interesting essays
+  - [Architects vs gardeners](https://gordonbrander.com/pattern/architects-vs-gardeners/)
+- [Without bullshit](https://withoutbullshit.com): blog about technical writing
+- [Guerilla mail](https://www.guerrillamail.com/): temporary email to register in crap sites so they won't spam you
+
