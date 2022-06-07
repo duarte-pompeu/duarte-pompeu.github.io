@@ -1,4 +1,5 @@
 #!/bin/bash
+# similar: https://wstyler.ucsd.edu/posts/pandoc_website.html
 
 cd src/
 folders=$(find . -type "d" | sed "s/.\///")
