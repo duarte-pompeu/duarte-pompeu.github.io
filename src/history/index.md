@@ -58,7 +58,9 @@ your code years ago, you're doing it wrong; let it be a [reminder](blog/2020-07-
 
 ## 2022
 
-Moved to netlify, which theoretically calls my bash script to generate the web content. In practice, I still call it locally to see how it will look like - and I still version the html, because why not?!
+Moved to netlify to see how it works... 
+It's OK. 
+I'm still building the html locally and versioning, so it just puts a web server in front of my files: not that interesting.
 
 ## 2023
 
