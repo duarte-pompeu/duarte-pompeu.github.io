@@ -14,9 +14,6 @@ Funny because random: peak humor! Surely they would showcase my amazing technica
 
 (Those silly projects are currently down but I should try to recover them.)
 
-Later I also added some interesting bookmarks and knowledge base, 
-which are completely outdated now so I deleted them. 
-
 Then a friend told me about site generators - that seemed better than plain HTML! I wrote some `.md` files and left the HTML to [Pelican](https://github.com/getpelican/pelican). 
 Much better! 
 `md` files in one folder, `html` in other: all of them sent to git and GitHub Pages (it was cheap and I didn't even know about `.gitignore`.)
