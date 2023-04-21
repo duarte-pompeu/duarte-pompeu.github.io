@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+
+
+<div id="header1">
+    <a href="../">Home</a>
+    <a href="https://discover-albums.duartepompeu.com">Discover Albums</a>
+    History
+
+</div>
+
+<div class="main">
+<h1 id="history-of-this-website">History of this website</h1>
+<h2 id="section">2015</h2>
+<p>Back in 2015, I was studying Software Engineering and I thought it’d be cool to have a blog - didn’t have much to say, but it would be cool! It was plain HTML, as I didn’t know any better. No posts yet, but I linked to some silly webapps I made:</p>
+<ul>
+<li>a name generator which would insult you</li>
+<li>a proverb generator which would mix two halfs of proverbs to create a new one</li>
+</ul>
+<p>Funny because random: peak humor! Surely they would showcase my amazing technical skills and help me land a nice job!</p>
+<p>(Those silly projects are currently down but I should try to recover them.)</p>
+<p>Later I also added some interesting bookmarks and knowledge base, which are completely outdated now so I deleted them.</p>
+<p>Then a friend told me about site generators - that seemed better than plain HTML! I wrote some <code>.md</code> files and left the HTML to <a href="https://github.com/getpelican/pelican">Pelican</a>. Much better! <code>md</code> files in one folder, <code>html</code> in other: all of them sent to git and GitHub Pages (it was cheap and I didn’t even know about <code>.gitignore</code>.)</p>
+<p>This was fine for a few years, as I kind of abandoned the website before starting it proper…</p>
+<p>When I remembered about something to add, I reinstalled everything, generated it again and alas: it was broken.</p>
+<p>This would be a repeating theme.</p>
+<h2 id="section-1">2018</h2>
+<p>According to my commits, I tried to move to <a href="https://hexo.io/">hexo</a>, but I hardly remember it. Next.</p>
+<p>Then I had the brilliant idea to create my own website generator: that would surely be simpler! No pesky developers updating their generators and causing my website to break! So I created a <a href="https://github.com/duarte-pompeu/duarte-pompeu.github.io/blob/master/build.sh">bash script</a> using <a href="https://pandoc.org">pandoc</a> inspired by <a href="http://wstyler.ucsd.edu/posts/pandoc_website.html">this</a>. I run <code>build.sh</code> and it converts the <code>.md</code> files from <code>src/</code> to <code>html</code> files in <code>web</code> (which is still under source control, because why break the tradition?).</p>
+<p>Guess what - updates in <code>pandoc</code> and <code>.css</code> files hosted in other websites caused it to break.</p>
+<p>But also guess what? Fixing the <code>css</code> only took a quick hack and it still works, 5 years later! Praise <code>pandoc</code>, praise <code>bash</code>! Also praise this brilliant humble dev, who decided to prepend the <code>html</code> output with <code>_b.html</code>, and append it with <code>_a.html</code> (as in, before and after). There wasn’t a single time this confused me, I promise.</p>
+<h2 id="section-2">2020</h2>
+<p>In 2020 I finally included a blog post: a horrible hack to automate creating a playlist in Spotify using fucking <em>Autohotkey</em>. You just needed to install Autohotkey, hardcode your desiredconfiguration, and move your mouse to a specific spot for it to work - can you hear the cries of UX designers?</p>
+<p>(Not that the frontend devs today are doing much better: websites taking 20 seconds to load and middle button not opening new tabs for half of modern websites? Pretty lame. Yes, I just compared this shit to modern frontend development, and I’m only half joking.)</p>
+<p>I was now a <em>professional</em> backend developer, and thought this would be a good idea to share with the world! It’s hidden now, but not deleted. As they say: if you’re not ashamed about your code years ago, you’re doing it wrong; let it be a <a href="blog/2020-07-11-auto_hotkey_spotify.html">reminder</a>.</p>
+<h2 id="section-3">2022</h2>
+<p>Moved to netlify, which theoretically calls my bash script to generate the web content. In practice, I still call it locally to see how it will look like - and I still version the html, because why not?!</p>
+<h2 id="section-4">2023</h2>
+<p>It’s 2023 now. I made a proper project to generate Spotify playlists: this time using a slightly more user-friendly approach. It’s made with a python backend, FastAPI, jinja templates, ci/cd and even OAuth flow, which had confused the crap out of me when I read it in 2020.</p>
+<p>Progress: that’s the good stuff.</p>
+<p><a href="https://discover-albums.duartepompeu.com">Go try it!</a> Now you know the intention behind this post: it’s an ad, like everything in the internet.</p>
+<h2 id="the-future">The future</h2>
+<p>So what now? I feel like I have more to say nowadays. Developing for 4 years already, I feel like a greybeard of sorts: sharing wisdom, reminiscing about the past and full of disdain for the youth and new technologies.</p>
+<p>So I might actually write some more posts. I just wrote this, so I guess it’s a start.</p>
+</div>
+</body>
+</html>
