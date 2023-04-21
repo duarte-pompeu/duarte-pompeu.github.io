@@ -51,7 +51,7 @@ Yes, I just compared this shit to modern frontend development, and I'm only half
 I was now a *professional* backend developer, and thought this would
 be a good idea to share with the world!
 It's hidden now, but not deleted. As they say: if you're not ashamed about
-your code years ago, you're doing it wrong; let it be a [reminder](blog/2020-07-11-auto_hotkey_spotify.html).
+your code years ago, you're doing it wrong; let it be a [reminder](/blog/2020-07-11-auto_hotkey_spotify.html).
 
 ## 2022
 
