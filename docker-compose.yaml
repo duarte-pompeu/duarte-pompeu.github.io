@@ -1,0 +1,8 @@
+version: '3'
+services:
+  pandoc:
+    container_name: pandoc
+    image: pandoc/core:3.1-alpine
+    volumes: 
+      - ./:/data
+    entrypoint: sh /data/build.sh
