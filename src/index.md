@@ -2,7 +2,6 @@
 
 Hi, I'm Duarte. 
 
-I program (backend, if you couldn't tell) and make cocktails.
+I'm a software engineer, mostly working on backend of web APIs and data pipelines.
 
-I'm currently working on a playlist generator for spotify:
-please [try it out](https://discover-albums.duartepompeu.com).
+This website links to a couple of my projects.
