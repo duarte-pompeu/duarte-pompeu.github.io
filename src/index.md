@@ -4,7 +4,7 @@ Hi, I'm Duarte. I'm software engineer, cocktail enthusiast and lover of arts.
 
 This website serves as a hub to some of my side projects:
 
-- [My Bar](https://bar.duartepompeu.com)
+- [My Bar](https://cocktails.duartepompeu.com)
 - [Discover Albums for Spotify](https://discover-albums.duartepompeu.com/)
 
 ## Projects
