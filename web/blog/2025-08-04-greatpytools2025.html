@@ -585,7 +585,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a hr
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">100</span>, <span class="dv">200</span>)</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test double(<span class="bu">input</span>, output)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_double(<span class="bu">input</span>, output)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">input</span> <span class="op">==</span> output</span></code></pre></div>
 <p>You can also assign custom names to each parameter (see pytest
 docs).</p>
@@ -731,6 +731,30 @@ hooks, which just fires commands in your CLI, eg
 <strong>centralized configuration</strong> approach: - uses the same
 version as defined by<code>uv</code> (in <code>uv.lock</code>) - uses
 the same configurations as defined in <code>pyproject.toml</code></p>
+<p>Here’s a simple example:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">repos</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> local</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">hooks</span><span class="kw">:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> format-python</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> format-python</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> system</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">pass_filenames</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">entry</span><span class="kw">:</span><span class="at"> uv run ruff format</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> reorder-python-imports</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> reorder-python-imports</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> system</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">entry</span><span class="kw">:</span><span class="at"> uv run reorder-python-imports --py312-plus --application-directories src:tests</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> lint-python</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> lint-python</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> system</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">pass_filenames</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">entry</span><span class="kw">:</span><span class="at"> uv run ruff check --fix --show-fixes</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> test-python</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> test-python</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> system</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">pass_filenames</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">entry</span><span class="kw">:</span><span class="at"> uv run pytest</span></span></code></pre></div>
 <p><strong>What about documentation?</strong></p>
 <p>Currently not using any tools for that. I think it’s more useful for
 libraries, where many users are interacting with the interfaces without
