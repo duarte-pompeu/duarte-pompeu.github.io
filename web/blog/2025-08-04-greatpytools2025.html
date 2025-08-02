@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2025-08-04-greatpytools2025</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- <html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>
+<body>
+
+<body> -->
+
+        <div id="header1">
+        <a href="../">Home</a>
+        <a href="../blog/">Blog</a>
+        <a href="../knowledge/">Knowledge</a>
+        <a href="../learning">Learning</a>
+        <a href="../projects/">Projects</a>
+        <a href="../services/">Resources</a>
+    </div>
+<h2 id="how-to-setup-great-python-projects-2025-update">How to setup
+great python projects (2025 update)</h2>
+<p><img width="1035" height="582" alt="front" src="https://github.com/user-attachments/assets/803dcf32-1892-4422-94cc-942fe47009c4" /></p>
+<p>In 2023, I presented <em>Tools to setup great python projects</em> in
+PyCon Portugal, where I spoke about my favorite tools and how to
+configure them. 2 years later, my philosophy hasn’t changed a lot, but
+I’m using new tools which have significant advantages - at least enough
+to ~go to Carcavelos and catch some sun~ give a new talk about it. This
+article explains the same topics, in written form.</p>
+<p>For package management, I am now using <code>uv</code>. It makes it
+easy to manage your dependencies, and locks their versions (and their
+sub-dependencies) in a file, leading to very reliable deployments. It’s
+also very fast and includes other goodies.</p>
+<p>For formatting, I switched to <code>ruff</code> +
+<code>reorder-python-imports</code>. The former is nice because it’s
+fast and also lints, with reasonable defaults. The latter is more niche,
+but enforces <em>one import per line</em>, which can decrease conflicts
+in <code>git</code>.</p>
+<p>For code linting, I’m staying with <code>ruff</code>. It supports
+hundreds of rules and allows for safe (and unsafe!) auto-fixes.</p>
+<p>For tests, I’m keeping <code>pytest</code>. It’s more ergonomic than
+the native <code>unittest</code> and includes extra goodies such as: -
+fixtures: re-usable objects (but better than global variables) -
+parameters: re-use test code for different inputs/outputs</p>
+<p>And I centralize all these configurations in
+<code>pyproject.toml</code>. This is very important! This will guarantee
+that other systems interacting with them (scripts, CLIs, IDEs, CI/CDs)
+will always use the same configuration! This results in a pleasing
+developer experience: <strong>flexible workflows, consistent
+results</strong>.</p>
+<p>I’m also sharing other resources you may find useful:</p>
+<ul>
+<li><a
+href="https://docs.google.com/presentation/d/1hS-bk3oHlplpQmQMP0biF3PKijS8rZ39_I8thtyTbvg/edit?usp=sharing">slides</a></li>
+<li><a
+href="https://www.youtube.com/watch?v=gJf-SpCAN9w&amp;t=8469s">stream
+recording</a> (unfortunately, has some audio issues)</li>
+<li>VOD (soon?)</li>
+<li><a href="https://github.com//duarte-pompeu/greatpytools2025">repo
+with example</a></li>
+</ul>
+<h1 id="tools">Tools</h1>
+<h2 id="package-manager">Package manager</h2>
+<p><img
+src="https://github.com/user-attachments/assets/19ddaab0-128e-49b8-9249-bf919e6f6475" /></p>
+<p>The two main things I look for in a package manager are:</p>
+<ul>
+<li><strong>an easy way to manage dependencies</strong></li>
+<li><strong>a lock with all main and sub-dependencies</strong> (1)</li>
+</ul>
+<p>Some recent languages, like go and rust, already include a good
+package manager. But Python is older and didn’t start with the right
+foot, so it’s been a rocky road for me:</p>
+<ul>
+<li><strong>pip</strong>: easy to pull packages, but hard to manage
+versions across different projects (on its own)</li>
+<li><strong>pip + venv + requirements.txt</strong>: a bit of a hack to
+get the job done: works but devx (developer experience) isn’t great
+(2)</li>
+<li><strong>poetry</strong> (or pipenv/pdm/others): reasonable devx with
+a lock file, but doesn’t help with versioning of Python itself (or
+didn’t, back then)</li>
+<li><strong>poetry + pyenv + pipx</strong>: a complex setup that gets
+the job done, but requires some learning on how/why to use it (3)</li>
+<li><strong>uv</strong>: as reliable as above, but much faster and all
+in one</li>
+</ul>
+<p>So far, I’m happy with uv, which also has a few other goodies:</p>
+<ul>
+<li>install packages directly from git (poetry and others are also able
+to)</li>
+<li>easier to manage machine learning packages (heard it can actually
+manage <code>pytorch</code>)</li>
+<li>can install packages in editable mode (useful for development,
+poetry and others are also able to)</li>
+</ul>
+<ol type="1">
+<li><p>as Matt Rickard puts it: there is a <a
+href="https://mattrickard.com/spectrum-of-reproducibility">Spectrum of
+Reproducibility</a>. Even a docker image is not 100% reproducible! But
+<code>uv.lock</code> is a great step without much effort.</p></li>
+<li><p>dev experience issues, from the top of my head:</p></li>
+</ol>
+<ul>
+<li>need to run a weird script to activate the virtualenv
+<ul>
+<li>didn’t ran the script or forgot <code>--requires-virtualenv</code>:
+enjoy our package globally installed now</li>
+<li>no built in way to separate groups of packages, eg deployable vs
+development</li>
+<li>no built in way to lock all sub-dependencies</li>
+</ul></li>
+</ul>
+<p>(3): here’s what I used every tool for: - poetry: manage project
+dependencies across projects - pyenv: manage python version across
+projects - pipx: install python tools not pinned to projects, eg
+<code>pre-commit</code> or <code>poetry</code></p>
+<h2 id="formatting">Formatting</h2>
+<p><img
+src="https://github.com/user-attachments/assets/685ef030-22b6-49d2-bcb6-2d38c9f9aac9" /></p>
+<p>I love <code>black</code>’s slogan, inspired by Henry Ford: <em>any
+color you want, as long as it’s black</em>. I really appreciated its
+(mostly) uncompromising philosophy: formats into a reasonable layout,
+that can be enforced consistently. Also important: it’s easy to setup
+and has good defaults.</p>
+<p>More than the formatting, its <strong>consistency</strong> is key for
+me: no longer having IDEs or devs formatting code differently and
+causing messy diffs: just configure a formatter, enforce it and enjoy
+this issue going away!</p>
+<p>With this said, I switch to <code>ruff</code>: I was already using it
+to lint, and it gained the capability to also format, with very similar
+results (inspired by <code>black</code>, actualy), so I made the switch
+and simplified my setup. It’s also faster, so I’ll take that as a
+win.</p>
+<p>A bit more niche, but I also replaced <code>isort</code> with
+<code>reorder-python-imports</code>. <code>isort</code> also has a nice
+slogan: <em>isort so you don’t have to</em>; it behaved reasonably well,
+but I was introduced to <code>reorder-python-imports</code> with the
+following premise: 1 import per line leads to fewer git conflicts. I was
+skeptical at first, but gave it a try and I’m convinced - it does indeed
+reduce the amount of conflicts related to imports! So I’m being
+pragmatic and embracing it, along with <code>ruff</code> (4).</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>reasonable layout</li>
+<li>consistent formatting</li>
+<li>less time spent formatting manually (or discussing it in
+reviews)</li>
+</ul>
+<ol start="4" type="1">
+<li>recently I heard <code>ruff</code> can be configured in a similar
+fashion - I’m looking forward to try that!</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>Let’s say you have an unformatted code of Python, with long
+statements and weird blank lines, such as this:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> seed, sample</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_random_elements(<span class="bu">list</span>: List[<span class="bu">int</span>] <span class="op">=</span> [], how_many_elements: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>, seed_for_deterministic_output <span class="op">=</span> <span class="dv">0</span>, a_forgotten_flag: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>) <span class="op">-&gt;</span> List[<span class="bu">int</span>]:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    seed(seed_for_deterministic_output)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sample(<span class="bu">list</span>, how_many_elements)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Hello!&quot;</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pick_random_elements([<span class="dv">2025</span>, <span class="dv">7</span>, <span class="dv">24</span>, <span class="dv">16</span>, <span class="dv">0</span>], <span class="dv">10</span>, <span class="va">True</span>))</span></code></pre></div>
+<p>To improve this, you can run the following commands (assuming you
+have <code>src/</code> and <code>tests/</code>):</p>
+<pre class="shell"><code>uv run ruff format
+uv run reorder-python-imports --py312-plus --application-directories src:tests</code></pre>
+<p>Leading to something like this:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> seed</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> sample</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_random_elements(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">list</span>: List[<span class="bu">int</span>] <span class="op">=</span> [],</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    how_many_elements: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    seed_for_deterministic_output<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    a_forgotten_flag: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> List[<span class="bu">int</span>]:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    seed(seed_for_deterministic_output)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sample(<span class="bu">list</span>, how_many_elements)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Hello!&quot;</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pick_random_elements([<span class="dv">2025</span>, <span class="dv">7</span>, <span class="dv">24</span>, <span class="dv">16</span>, <span class="dv">0</span>], <span class="dv">10</span>, <span class="va">True</span>))</span></code></pre></div>
+<h2 id="linting">Linting</h2>
+<p><img
+src="https://github.com/user-attachments/assets/5e1406e7-a66f-4552-bde3-efdf7df89ed8" /></p>
+<p>According to <a
+href="https://en.wikipedia.org/wiki/Lint_(software)">Wikipedia</a>, a
+linter is a “static code analysis tool used to flag programming errors,
+bugs, stylistic errors and suspicious constructs”. You can get more
+complex checks with LLMs or online services, but I prefer to use simple
+local tools. (5)</p>
+<p>In the past I used <code>flake8</code>, but <code>ruff</code> has
+implemented most of its rules (and more), so that’s why I’m using it
+now.</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>avoid basic errors</li>
+<li>learn more about Python</li>
+<li>configure from hundreds of rules</li>
+<li>save time with auto-fixing</li>
+</ul>
+<ol start="5" type="1">
+<li>but you can always augment your setup with other tooling! In my
+experience:</li>
+</ol>
+<ul>
+<li>enforce static analysis that is more limited but right 99% of the
+time</li>
+<li>suggest extra analysis that is more advanced but also has more false
+positives</li>
+</ul>
+<h2 id="example-1">Example</h2>
+<p>Let’s continue from the previously formatted file:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> seed</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> sample</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_random_elements(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">list</span>: List[<span class="bu">int</span>] <span class="op">=</span> [],</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    how_many_elements: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    seed_for_deterministic_output<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    a_forgotten_flag: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> List[<span class="bu">int</span>]:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    seed(seed_for_deterministic_output)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sample(<span class="bu">list</span>, how_many_elements)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Hello!&quot;</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pick_random_elements([<span class="dv">2025</span>, <span class="dv">7</span>, <span class="dv">24</span>, <span class="dv">16</span>, <span class="dv">0</span>], <span class="dv">10</span>, <span class="va">True</span>))</span></code></pre></div>
+<p>We can run these commands to check for basic problems:</p>
+<pre class="shell"><code>uv run ruff check --fix --show-fixes</code></pre>
+<p>In this case (given my configuration, see details at end), it
+detected the following issues:</p>
+<pre><code>Found 9 errors:
+UP035 `typing.List` is deprecated, use `list` instead
+F401 [*] `math` imported but unused
+F401 [*] `statistics` imported but unused
+F403 `from itertools import *` used; unable to detect undefined names
+F403 `from random import *` used; unable to detect undefined names
+UP006 [*] Use `list` instead of `List` for type annotation
+B006 Do not use mutable data structures for argument defaults
+UP006 [*] Use `list` instead of `List` for type annotation
+F541 [*] f-string without any placeholders
+[*] 5 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).</code></pre>
+<p>After applying the fixes (either automatically or manually), we get
+the following:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> sample</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> seed</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_random_elements(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">list</span>: <span class="bu">list</span>[<span class="bu">int</span>] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    how_many_elements: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    seed_for_deterministic_output<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    a_forgotten_flag: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">int</span>]:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">list</span> <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">list</span> <span class="op">=</span> []</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    seed(seed_for_deterministic_output)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sample(<span class="bu">list</span>, how_many_elements)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello!&quot;</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pick_random_elements([<span class="dv">2025</span>, <span class="dv">7</span>, <span class="dv">24</span>, <span class="dv">16</span>, <span class="dv">0</span>], <span class="dv">10</span>, <span class="va">True</span>))</span></code></pre></div>
+<h2 id="tests">Tests</h2>
+<figure>
+<img
+src="https://github.com/user-attachments/assets/69b26bc5-2f61-4485-926c-f626eae37c28"
+alt="FIXME: wrong gif" />
+<figcaption aria-hidden="true">FIXME: wrong gif</figcaption>
+</figure>
+<p><code>pytest</code> is almost like <code>requests</code>: the
+standard lib has similar tools included, but these are much nicer to
+use.</p>
+<p>My main interests on it are its ergonomy, and advanced features like
+parameters and fixtures.</p>
+<p>I’m also curious about <code>hypothesis</code>, but use it rarely.
+I’m a fan of the oracle pattern(7).</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>ergonomic tests</li>
+<li>it allows re-usable objects via <em>fixtures</em> (which are nicer
+than globals)</li>
+<li>it allows for re-usable tests via <em>parameters</em></li>
+<li>(and much more advanced stuff that I’m not using!)</li>
+</ul>
+<ol start="6" type="1">
+<li><p>However, the final code it actually generates is a thing from
+nightmares, as shown by Pablo in PyCon Portugal 2025 :D</p></li>
+<li><p>Here’s an explanation from Hillen Wayne: <a
+href="https://www.hillelwayne.com/post/hypothesis-oracles/">Hypothesis
+Testing with Oracle Functions</a></p></li>
+</ol>
+<h1 id="example-2">Example</h1>
+<p>I’ll provide a few examples. Let’s start with an easy, which takes 2
+lines of code:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_f():</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="dv">1</span> <span class="op">==</span> <span class="fl">1.0</span></span></code></pre></div>
+<p>Parameters are interesting to multiply your tests. This has some
+advantages over putting multiple asserts in single test: - report shows
+exactly which one failed - runs all of them</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.parametrize</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;input, output&quot;</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        (<span class="op">-</span><span class="dv">100</span>, <span class="op">-</span><span class="dv">200</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        (<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        (<span class="op">-</span><span class="fl">0.0001</span>, <span class="op">-</span><span class="fl">0.0002</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">0.0001</span>, <span class="fl">0.0002</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">100</span>, <span class="dv">200</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test double(<span class="bu">input</span>, output)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">input</span> <span class="op">==</span> output</span></code></pre></div>
+<p>You can also assign custom names to each parameter (see pytest
+docs).</p>
+<p>Fixtures allow you to re-use complex objects without globals. You can
+also:</p>
+<ul>
+<li>chain initialization of objects depending on others</li>
+<li>define when to initialize them (default: per function; but allows
+per module, per session, etc.)</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parent():</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_complex_obj()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> child_a(parent):</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_complex_obj(parent, some_param)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> child_b(parent):</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_complex_obj(parent, another_param)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_parent(parent):</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> parent.foo() <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_child_a(child_a):</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> child_a.foo() <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_child_b(child_b):</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> child_b.foo() <span class="op">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<h1 id="centralized-configurations">Centralized configurations</h1>
+<figure>
+<img
+src="https://github.com/user-attachments/assets/02191739-86b4-41b5-ae93-33890e1985a0"
+alt="FIXME: wrong gif" />
+<figcaption aria-hidden="true">FIXME: wrong gif</figcaption>
+</figure>
+<p>With so many tools, it’s important to make them a breeze to configure
+and use across many systems: scripts, CLIs, IDEs, CI/CDs, and so on. If
+you work in a team, this means these tools will affect you and all your
+colleagues too! There’s two possible outcomes: - do it well: everyone
+will have a smooth experience and appreciate the setup - do it wrong:
+inconsistencies and errors will make it more painful than helpful</p>
+<p>So, my way to “do it well” is simple:</p>
+<p><strong>1. Centralize the configurations in
+<code>pyproject.toml</code></strong>: by default, these tools will look
+into <code>pyproject.toml</code> for configurations. Configuring them
+there allows you to run these utilities easily, without any flag, but
+still have them work consistently with the expected rules</p>
+<p><strong>2. (Optional) Define a script with the checks you
+want</strong>: this script calls the tools, to run locally and/or to be
+ran by CI/CD. This way, everyone is on the same page: if the fix CI/CD
+complains about issues, you can run your script locally and fix them.
+<strong>If it’s fixed locally, it’s fixed in CI/CD</strong>.</p>
+<p><strong>3. Enjoy the consistency across systems</strong>: W hat’s
+this consistency about? Let’s consider an example with formatting :</p>
+<ul>
+<li>CLI: just run <code>ruff format</code></li>
+<li>IDE: just configure it to use <code>ruff format</code></li>
+<li>Script: just write the basic commands, eg
+<code>ruff format</code></li>
+<li>CI/CD: just run the script, or code the simple commands</li>
+</ul>
+<p>If you specified the rules in <code>pyproject.toml</code>, all the
+examples from above will behave exactly the same! This brings nice
+<strong>Results</strong>: - avoid different devs using different
+formatting - avoid CI/CD enforcing different formatting rules than devs
+expect - avoids drift in configurations (eg change in one place but not
+in another)</p>
+<p><img width="1235" height="927" alt="centralized_dark excalidraw" src="https://github.com/user-attachments/assets/32fe3434-99e7-41a6-8ff8-9108a3994610" /></p>
+<p>FIXME: colors</p>
+<p>Heres a simple example with configurations:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode toml"><code class="sourceCode toml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">tool</span><span class="kw">.</span><span class="dt">ruff</span><span class="kw">]</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">target-version</span><span class="op">=</span><span class="st">&quot;py313&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">include</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;src/**.py&quot;</span><span class="op">,</span> <span class="st">&quot;tests/**.py&quot;</span><span class="op">]</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dt">exclude</span><span class="op">=</span> <span class="op">[</span><span class="st">&quot;src/before.py&quot;</span><span class="op">]</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span><span class="kw">.</span><span class="dt">select</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;B&quot;</span><span class="op">,</span>    <span class="co"># bugbear:    potential bugs</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;DTZ&quot;</span><span class="op">,</span>  <span class="co"># datetimez:  warn about missing timezones</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;F&quot;</span><span class="op">,</span>    <span class="co"># pyflakes:   potential errors</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FURB&quot;</span><span class="op">,</span> <span class="co"># refurb:     refurbishing and modernizing Python codebases</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;PERF&quot;</span><span class="op">,</span> <span class="co"># perflint:   avoid performance anti-patterns</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;PL&quot;</span><span class="op">,</span>   <span class="co"># pylint:     the oldest static code analyser ( sometimes a bit pedantic)</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;RUF&quot;</span><span class="op">,</span>  <span class="co"># ruff:       rules introduced by ruff</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;S&quot;</span><span class="op">,</span>    <span class="co"># bandit:     security issues</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;SIM&quot;</span><span class="op">,</span>  <span class="co"># simplify:   helps you simplify your code</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;UP&quot;</span><span class="op">,</span>   <span class="co"># pyupgrade:  upgrade syntax or newer versions of the language</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span><span class="kw">.</span><span class="dt">ignore</span> <span class="op">=</span> <span class="op">[]</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">tool</span><span class="kw">.</span><span class="dt">ruff</span><span class="kw">.</span><span class="dt">lint</span><span class="kw">.</span><span class="dt">per-file-ignores</span><span class="kw">]</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Some checks don&#39;t make sense in unit tests</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&quot;tests/*.py&quot;</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;S101&quot;</span><span class="op">,</span>    <span class="co"># Use of `assert` detected</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;PLR0133&quot;</span><span class="op">,</span> <span class="co"># Two constants compared in a comparison, consider replacing `1 == 1&quot;</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">tool</span><span class="kw">.</span><span class="dt">pytest</span><span class="kw">.</span><span class="dt">ini_options</span><span class="kw">]</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="dt">pythonpath</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;.&quot;</span><span class="op">]</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="dt">testpaths</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;./tests&quot;</span><span class="op">]</span></span></code></pre></div>
+<h1 id="wrapping-up">Wrapping up</h1>
+<p>In short, I’m using: <code>uv</code>, <code>ruff</code>,
+<code>reorder-python-imports</code> and <code>pytest</code> to setup my
+Python projects for a better experience. All configurations are
+centralized in <code>pyproject.toml</code> so they are easily re-usable
+across CLIs, IDEs, scripts and CI/CD.</p>
+<p>This delivers useful things:</p>
+<ul>
+<li>reproducible deployments</li>
+<li>consistent formatting</li>
+<li>helpful static checks</li>
+<li>ergonomic testing</li>
+<li>consistent configurations</li>
+</ul>
+<p>This is not a solution to all software engineering problems, not even
+close - but I find it basically solves these problems, so you have fewer
+distractions from the more complex ones!</p>
+<h1 id="audience-questions">Audience questions</h1>
+<p>Relevant questions from the audience and my answers, with extra
+context after reflecting on them for a bit.</p>
+<p><strong>What do you think about pre-commit?</strong></p>
+<p>I think it’s a reliable way to configure all your tests, and even
+allow different workflows:</p>
+<ul>
+<li>can be ran manually</li>
+<li>can be installed with git hooks</li>
+<li>CI/CD can also run it manually to perform the same checks</li>
+</ul>
+<p>However, I oppose the use of custom pre-commit hooks, such as <a
+href="https://github.com/astral-sh/ruff-pre-commit">ruff-pre-commit</a>.
+They will use different versions (maybe configurations?), which can
+introduce versioning/configuration drift, degrading developer
+experience.</p>
+<p>My approach is to keep it simple and define <code>system</code>
+hooks, which just fires commands in your CLI, eg
+<code>uv run ruff format</code>. This plays perfectly into the
+<strong>centralized configuration</strong> approach: - uses the same
+version as defined by<code>uv</code> (in <code>uv.lock</code>) - uses
+the same configurations as defined in <code>pyproject.toml</code></p>
+<p><strong>What about documentation?</strong></p>
+<p>Currently not using any tools for that. I think it’s more useful for
+libraries, where many users are interacting with the interfaces without
+reading the internals, while I’m mostly developing applications, in
+small teams who are familiar with the code (and can read the docstrings
+from their IDE).</p>
+<p><strong>What about type checking?</strong></p>
+<p>I find it useful to write type hints and check them occasionally, but
+I usually don’t enforce it:</p>
+<ul>
+<li>early in the project: experimental code, not caring about types</li>
+<li>late in the project: too many errors to enforce</li>
+</ul>
+<p>But I’m curious about some new type checkers such as <code>ty</code>
+and <code>pyrefly</code>.</p>
+<p>(I’m cheating, I put that question myself in advance due to a
+question from 2023 :p)</p>
+<!-- </body>
+</html> -->
+</body>
+</html>
