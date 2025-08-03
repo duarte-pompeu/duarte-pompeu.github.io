@@ -1,4 +1,3 @@
-version: '3'
 services:
   pandoc:
     container_name: pandoc
