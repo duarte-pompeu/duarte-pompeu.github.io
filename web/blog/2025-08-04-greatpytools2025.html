@@ -250,33 +250,37 @@
 <h2 id="how-to-setup-great-python-projects-2025-update">How to setup
 great python projects (2025 update)</h2>
 <p><img width="1035" height="582" alt="front" src="https://github.com/user-attachments/assets/803dcf32-1892-4422-94cc-942fe47009c4" /></p>
-<p>In 2023, I presented <em>Tools to setup great python projects</em> in
+<p>A guide to using uv, ruff, reorder-python-imports and pytest to
+manage packages, formatting, static analysis and testing - all under a
+centralized configuration that is easy to re-use across CI/CDs, CLIs,
+IDEs and scripts.</p>
+<h1 id="summary">Summary</h1>
+<p>In 2023, I presented <em>Tools to setup great Python projects</em> in
 PyCon Portugal, where I spoke about my favorite tools and how to
 configure them. 2 years later, my philosophy hasn’t changed a lot, but
 I’m using new tools which have significant advantages - at least enough
-to ~go to Carcavelos and catch some sun~ give a new talk about it. This
-article explains the same topics, in written form.</p>
-<p>For package management, I am now using <code>uv</code>. It makes it
-easy to manage your dependencies, and locks their versions (and their
-sub-dependencies) in a file, leading to very reliable deployments. It’s
-also very fast and includes other goodies.</p>
-<p>For formatting, I switched to <code>ruff</code> +
-<code>reorder-python-imports</code>. The former is nice because it’s
-fast and also lints, with reasonable defaults. The latter is more niche,
-but enforces <em>one import per line</em>, which can decrease conflicts
-in <code>git</code>.</p>
-<p>For code linting, I’m staying with <code>ruff</code>. It supports
-hundreds of rules and allows for safe (and unsafe!) auto-fixes.</p>
-<p>For tests, I’m keeping <code>pytest</code>. It’s more ergonomic than
-the native <code>unittest</code> and includes extra goodies such as: -
-fixtures: re-usable objects (but better than global variables) -
-parameters: re-use test code for different inputs/outputs</p>
-<p>And I centralize all these configurations in
-<code>pyproject.toml</code>. This is very important! This will guarantee
-that other systems interacting with them (scripts, CLIs, IDEs, CI/CDs)
-will always use the same configuration! This results in a pleasing
-developer experience: <strong>flexible workflows, consistent
-results</strong>.</p>
+to give a new talk about it (and go to Carcavelos and catch some sun).
+This article explains the same topics, in written form.</p>
+<p><strong>Package management (uv)</strong>: I am now using
+<code>uv</code>, which makes it easy to manage your dependencies, and
+locks their versions (and their sub-dependencies) in a file, leading to
+very reliable deployments. It’s also very fast and includes other
+goodies.</p>
+<p><strong>Formatting (ruff + reorder-python-imports)</strong>: I
+switched my tools for formatting; keeping the good defaults and
+consistency, but now with improved speed, and few git conflicts.</p>
+<p><strong>Code linting (ruff)</strong>: I’m staying with
+<code>ruff</code>, as it’s fast, supports hundreds of rules and allows
+for safe auto-fixing.</p>
+<p><strong>Tests (pytest)</strong>: I’m keeping <code>pytest</code>, as
+it’s more ergonomic than the native <code>unittest</code> and includes
+fixtures, parametrized tests and other advanced features.</p>
+<p><strong>Centralized configuration (pyproject.toml)</strong>: I
+centralize all these configurations in <code>pyproject.toml</code>. This
+is very important! This will guarantee that other systems interacting
+with them (scripts, CLIs, IDEs, CI/CDs) will always use the same
+configuration! This results in a pleasing developer experience:
+<strong>flexible workflows, consistent results</strong>.</p>
 <p>I’m also sharing other resources you may find useful:</p>
 <ul>
 <li><a
@@ -353,9 +357,9 @@ color you want, as long as it’s black</em>. I really appreciated its
 that can be enforced consistently. Also important: it’s easy to setup
 and has good defaults.</p>
 <p>More than the formatting, its <strong>consistency</strong> is key for
-me: no longer having IDEs or devs formatting code differently and
-causing messy diffs: just configure a formatter, enforce it and enjoy
-this issue going away!</p>
+me: having IDEs or devs formatting code differently causes messy diffs
+and file history! It’s much better to agree on a formatting style and
+enforce it, and watch the problem disappear.</p>
 <p>With this said, I switch to <code>ruff</code>: I was already using it
 to lint, and it gained the capability to also format, with very similar
 results (inspired by <code>black</code>, actualy), so I made the switch
@@ -557,7 +561,7 @@ than globals)</li>
 <ol start="6" type="1">
 <li><p>However, the final code it actually generates is a thing from
 nightmares, as shown by Pablo in PyCon Portugal 2025 :D</p></li>
-<li><p>Here’s an explanation from Hillen Wayne: <a
+<li><p>Here’s an explanation from Hillel Wayne: <a
 href="https://www.hillelwayne.com/post/hypothesis-oracles/">Hypothesis
 Testing with Oracle Functions</a></p></li>
 </ol>
@@ -582,7 +586,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a hr
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">0</span>),</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">0.0001</span>, <span class="fl">0.0002</span>),</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">100</span>, <span class="dv">200</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">100</span>, <span class="dv">200</span>),</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_double(<span class="bu">input</span>, output)</span>
@@ -658,9 +662,10 @@ examples from above will behave exactly the same! This brings nice
 formatting - avoid CI/CD enforcing different formatting rules than devs
 expect - avoids drift in configurations (eg change in one place but not
 in another)</p>
+<p>This looks something like this:</p>
 <p><img width="1235" height="927" alt="centralized_dark excalidraw" src="https://github.com/user-attachments/assets/32fe3434-99e7-41a6-8ff8-9108a3994610" /></p>
 <p>FIXME: colors</p>
-<p>Heres a simple example with configurations:</p>
+<p>Here’s a simple example with configurations:</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode toml"><code class="sourceCode toml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">tool</span><span class="kw">.</span><span class="dt">ruff</span><span class="kw">]</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">target-version</span><span class="op">=</span><span class="st">&quot;py313&quot;</span></span>
@@ -772,6 +777,18 @@ I usually don’t enforce it:</p>
 and <code>pyrefly</code>.</p>
 <p>(I’m cheating, I put that question myself in advance due to a
 question from 2023 :p)</p>
+<h2 id="thanks">Thanks!</h2>
+<p>Thanks to everyone who helped me develop this article:</p>
+<ul>
+<li>feedzai: the company where I’m working, for sponsoring the travel
+for the conference</li>
+<li>José Raposo &amp; Leonardo Marques: for reviewing the article</li>
+<li>PyCon Portugal: for having me!</li>
+<li>Rafaela Nogueira: for helping me style the slides and designing the
+front cover</li>
+<li>Taian Feitosa: for introducing me to
+<code>reorder-python-imports</code></li>
+</ul>
 <!-- </body>
 </html> -->
 </body>
