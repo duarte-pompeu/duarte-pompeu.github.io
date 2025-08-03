@@ -17,6 +17,8 @@ for f in $folders; do
 done
 cd - > /dev/null
 
+cp src/*.css web/
+
 for f in $folders; do
     in=src/$f
     cd $in
@@ -41,5 +43,3 @@ for f in $folders; do
 
     done
 done
-
-cp src/*.css web/
